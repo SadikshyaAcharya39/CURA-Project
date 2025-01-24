@@ -5,18 +5,23 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class LoginTest {
-   WebDriver driver;
+   private WebDriver driver;
+   private LoginTest loginTest;
+   private MakeAppointment makeAppointment;
+   private HamburgerFunctionality hamburgerFunctionality;
+   private SocialMediaButtons socialMediaButtons;
 
    @BeforeEach
     public void setUp(){
        driver = new FirefoxDriver();
        driver.get("https://katalon-demo-cura.herokuapp.com/");
-
+//        makeAppointment = new MakeAppointment(driver);
    }
 
    @AfterEach
@@ -111,7 +116,4 @@ public class LoginTest {
         WebElement header = driver.findElement(By.xpath("//h2[normalize-space()='Make Appointment']"));
         Assertions.assertEquals("Make Appointment", header.getText(), "Title does not Match");
     }
-
-
-
 }
